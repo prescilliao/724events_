@@ -11,7 +11,7 @@ const PER_PAGE = 9;
 
 const EventList = () => {
   const { data, error } = useData();
-  const [type, setType] = useState();
+  const [type, setType] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
     (!type
@@ -34,7 +34,7 @@ const EventList = () => {
   const typeList = new Set(data?.events.map((event) => event.type));
   return (
     <>
-      {error && <div>An error occured</div>}
+      {error && <div>An error occurred</div>}
       {data === null ? (
         "loading"
       ) : (
